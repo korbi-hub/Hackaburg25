@@ -16,6 +16,7 @@ class NavWrapper extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Align(alignment: Alignment.centerLeft, child: Text(context.translate.appName)),
+        backgroundColor: Colors.grey.shade300,
       ),
       body: SafeArea(
         child: Padding(

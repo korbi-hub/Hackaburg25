@@ -9,5 +9,5 @@
   "createConnection": "Connect to your lock",
   "connectionSuccess": "Connection successful",
   "connectionFailed": "Oops, we failed to connect to your lock",
-  "stats": "Stats"
+  "stats": "Stats",
 }

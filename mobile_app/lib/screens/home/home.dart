@@ -18,7 +18,7 @@ final count = 10;
                 size: 300,
               )*/
             BikeInfoCard(bikeName: 'MTB'),
-            if (i != count) Divider(),
+            //if (i != count) Divider(),
           ],
         ],
       ),

@@ -8,18 +8,25 @@ class Step1RfidActivation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text(context.translate.activateNcf),
-        Spacer(),
-        Expanded(child: Text(context.translate.activateNfcMessage)),
-        Spacer(),
-        ElevatedButton(
-          onPressed:
-              () => context.read<BikeRegistrationCubit>().startScanning(),
-          child: Text(context.translate.continueProcess),
-        ),
-      ],
+    return Card(
+      elevation: 5,
+      child: Column(
+        children: [
+        //Text(context.translate.activateNcf),
+        //Spacer(),
+        Text(
+        context.translate.activateNfcMessage,
+        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+      ),
+    //Spacer(),
+    ElevatedButton(
+    onPressed:
+    () => context.read<BikeRegistrationCubit>().startScanning(),
+    child: Text(context.translate.continueProcess),
+    ),
+    ],
+    ),
     );
-  }
+
+    }
 }
