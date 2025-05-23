@@ -21,5 +21,5 @@ void ESP_Steuerung::A02_CommIn()
 // Zyklische Comm nach aussen, falls es sowas gibt
 void ESP_Steuerung::A31_CommOut()
 {
-
+    c_electric.alarm(m_AlarmOn);
 }

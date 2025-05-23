@@ -36,7 +36,7 @@ void ESP_Steuerung::A14_Sequence4_FalscheUUID(){
             strcpy(str_textbuffer, c_blueCom.getComm().c_str());
             if(strcmp(str_textbuffer, "ALARM"))
             {
-                c_electric.alarm(true);
+                m_AlarmOn = true;
                 int_4 = 0;
             }
             else if(strcmp(str_textbuffer, "Chill"))

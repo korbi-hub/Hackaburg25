@@ -1,7 +1,7 @@
 #include <Arduino.h>
 #include "c_electric.h"
 
-void turnOnLed(bool R, bool G, bool B)
+void Electronic::turnOnLed(bool R, bool G, bool B)
 {
     // Write according to input
     digitalWrite(PIN_LED_RED,   R ? HIGH : LOW);
@@ -10,16 +10,12 @@ void turnOnLed(bool R, bool G, bool B)
 }
 
 
-void activateBuzzer(bool m_buzzerOn) {  // buzzer buzzes when buzzeron is true
+void Electronic::activateBuzzer(bool m_buzzerOn) {  // buzzer buzzes when buzzeron is true
     digitalWrite(PIN_BUZZER, m_buzzerOn ? HIGH : LOW);
 }
 
 
 // if true: open position | if false: closed position
-void ServoMotorOpen(bool m_Open) {
-    if (m_Open) {
-        myServo.write(180);  // Open position
-    } else {
-        myServo.write(90);   // Closed position
-    }
+void Electronic::ServoMotorOpen(bool m_Open) {
+    myServo.write(m_Open ? 90 : 0);
 }     

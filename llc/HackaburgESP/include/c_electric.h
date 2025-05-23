@@ -1,6 +1,7 @@
 #pragma once
 #include "PINs.h"
-#include <Servo.h>
+#include <ESP32Servo.h>
+
 
 class Electronic{
 public:

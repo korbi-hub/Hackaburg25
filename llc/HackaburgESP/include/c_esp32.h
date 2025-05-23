@@ -37,7 +37,7 @@ void A31_CommOut();     // Output (Bluetooth Com) ausgeben
 
 private:
     // system flags
-    bool m_Connected, m_Registered, m_BikeLocked, m_Driving;
+    bool m_Connected, m_Registered, m_BikeLocked, m_Driving, m_AlarmOn;
 
     std::string UUID;
     

@@ -16,7 +16,7 @@ void ESP_Steuerung::A15_Sequence5_Beschleunigungssensor(){
         // Alarm & send to App
         case 1:
             c_blueCom.sendComm("Fremder Versuchszugriff"); 
-            c_electric.alarm(true);
+            m_AlarmOn = true;
         break;
 
         // Wait App cancelling @grk hier noch handshake mit app?
@@ -30,7 +30,7 @@ void ESP_Steuerung::A15_Sequence5_Beschleunigungssensor(){
 
         // Cancel Alarm
         case 3:
-            c_electric.alarm(true);
+            m_AlarmOn = true;
             int_5++;
         break;
 
