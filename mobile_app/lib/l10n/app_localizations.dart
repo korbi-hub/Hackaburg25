@@ -153,6 +153,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Stats'**
   String get stats;
+
+  /// No description provided for @retryScan.
+  ///
+  /// In en, this message translates to:
+  /// **'Retry scan'**
+  String get retryScan;
+
+  /// No description provided for @bikeNameLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Bike name'**
+  String get bikeNameLabel;
+
+  /// No description provided for @addBike.
+  ///
+  /// In en, this message translates to:
+  /// **'Add bike'**
+  String get addBike;
 }
 
 class _AppLocalizationsDelegate

@@ -5,6 +5,8 @@ sealed class BluetoothCubitState {}
 
 final class BluetoothInitial extends BluetoothCubitState {}
 
+final class BluetoothLoading extends BluetoothCubitState {}
+
 final class BluetoothDeviceList extends BluetoothCubitState {
   final List<BluetoothDevice> devices;
 

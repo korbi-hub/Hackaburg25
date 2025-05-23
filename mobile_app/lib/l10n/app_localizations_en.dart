@@ -38,4 +38,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get stats => 'Stats';
+
+  @override
+  String get retryScan => 'Retry scan';
+
+  @override
+  String get bikeNameLabel => 'Bike name';
+
+  @override
+  String get addBike => 'Add bike';
 }

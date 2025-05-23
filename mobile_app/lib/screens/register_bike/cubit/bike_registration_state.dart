@@ -9,7 +9,11 @@ final class EstablishConnection extends BikeRegistrationState {}
 
 final class ScanningDevices extends BikeRegistrationState {}
 
-final class ConnectionSuccess extends BikeRegistrationState {}
+final class ConnectionSuccess extends BikeRegistrationState {
+  final BluetoothDevice device;
+
+  ConnectionSuccess(this.device);
+}
 
 final class ConnectionError extends BikeRegistrationState {
   final ErrorScreenConfig config;

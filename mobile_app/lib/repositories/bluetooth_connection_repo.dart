@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:mobile_app/model/saved_bike.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -8,11 +9,11 @@ class BluetoothConnectionRepo {
 
   Future<List<Bike>> get savedBikes async {
     try {
-      final prefs = await SharedPreferences.getInstance();
-      final savedBikes =
-          BikeList.fromJson(
-            prefs.getString(bikesKey) as Map<String, dynamic>,
-          ).bikes;
+      final bikes = (await SharedPreferences.getInstance()).getString(bikesKey);
+      if (bikes == null) {
+        return [];
+      }
+      final savedBikes = BikeList.fromJson(jsonDecode(bikes)).bikes;
       return savedBikes;
     } on Exception catch (e) {
       return [];
@@ -21,6 +22,8 @@ class BluetoothConnectionRepo {
 
   Future<void> replaceBikes(List<Bike> bikes) async {
     final prefs = await SharedPreferences.getInstance();
-    prefs.setString(bikesKey, BikeList(bikes: bikes).toJson().toString());
+    prefs.remove(bikesKey);
+    final jsonString = jsonEncode(BikeList(bikes: bikes).toJson());
+    prefs.setString(bikesKey, jsonString);
   }
 }
