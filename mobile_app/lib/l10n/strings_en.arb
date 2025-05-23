@@ -1,3 +1,13 @@
 {
-  "home": "Homescreen"
+  "home": "Homescreen",
+  "appName": "Easy Lock",
+  "registerBike": "Register bike",
+  "registerYourBike": "Register your bike",
+  "activateNcf": "Activate your lock via RFID",
+  "activateNfcMessage": "To connect to your bike lock you first need to activate the Bike with the RFID chip you received with the lock.\n\nPlease place the RFID chip on the lock and wait until you can hear it beep. After you heard the noise, please press on \"Continue process\"",
+  "continueProcess": "Continue process",
+  "createConnection": "Connect to your lock",
+  "connectionSuccess": "Connection successful",
+  "connectionFailed": "Oops, we failed to connect to your lock",
+  "stats": "Stats"
 }
