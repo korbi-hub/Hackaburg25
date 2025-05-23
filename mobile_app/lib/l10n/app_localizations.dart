@@ -97,14 +97,62 @@ abstract class AppLocalizations {
   /// No description provided for @home.
   ///
   /// In en, this message translates to:
-  /// **'Homescreen'**
+  /// **'Home screen'**
   String get home;
 
-  /// No description provided for @appName.
+  /// No description provided for @registerBike.
   ///
   /// In en, this message translates to:
-  /// **'Easy Lock'**
-  String get appName;
+  /// **'Register bike'**
+  String get registerBike;
+
+  /// No description provided for @registerYourBike.
+  ///
+  /// In en, this message translates to:
+  /// **'Register your bike'**
+  String get registerYourBike;
+
+  /// No description provided for @activateNcf.
+  ///
+  /// In en, this message translates to:
+  /// **'Activate your lock via RFID'**
+  String get activateNcf;
+
+  /// No description provided for @activateNfcMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'To connect to your bike lock you first need to activate the Bike with the RFID chip you received with the lock.\n\nPlease place the RFID chip on the lock and wait until you can hear it beep. After you heard the noise, please press on \"Continue process\"'**
+  String get activateNfcMessage;
+
+  /// No description provided for @continueProcess.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue process'**
+  String get continueProcess;
+
+  /// No description provided for @createConnection.
+  ///
+  /// In en, this message translates to:
+  /// **'Connect to your lock'**
+  String get createConnection;
+
+  /// No description provided for @connectionSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Connection successful'**
+  String get connectionSuccess;
+
+  /// No description provided for @connectionFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Oops, we failed to connect to your lock'**
+  String get connectionFailed;
+
+  /// No description provided for @stats.
+  ///
+  /// In en, this message translates to:
+  /// **'Stats'**
+  String get stats;
 }
 
 class _AppLocalizationsDelegate
