@@ -1,18 +1,16 @@
 # mobile_app
 
-Mobile App for the Hackaburg project
+A new Flutter project.
 
-## Git
+## Getting Started
 
-### Branch naming conventions:
-- For all branches created from appdev: **feat/[branch name]**
+This project is a starting point for a Flutter application.
 
-### Other conventions:
-- Create all branches for the app from `appdev`
-- Merge changes of a created feature into `appdev`
-- Commits to main will be concluded from time to time and must be in a working state 
+A few resources to get you started if this is your first Flutter project:
 
-## Project management 
+- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-We define the set of issues in the list below. All completed issues should be checked off if completed
-- [ ] Add packages  
+For help getting started with Flutter development, view the
+[online documentation](https://docs.flutter.dev/), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.
