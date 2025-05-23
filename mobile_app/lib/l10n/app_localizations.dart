@@ -99,6 +99,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Homescreen'**
   String get home;
+
+  /// No description provided for @appName.
+  ///
+  /// In en, this message translates to:
+  /// **'Easy Lock'**
+  String get appName;
 }
 
 class _AppLocalizationsDelegate

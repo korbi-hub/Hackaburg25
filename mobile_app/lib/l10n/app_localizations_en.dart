@@ -10,4 +10,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get home => 'Homescreen';
+
+  @override
+  String get appName => 'Easy Lock';
 }
