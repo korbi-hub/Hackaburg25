@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mobile_app/repositories/bluetooth_connection_repo.dart';
 import 'package:mobile_app/screens/register_bike/cubit/bike_registration_cubit.dart';
 import 'package:mobile_app/screens/register_bike/steps/step_1_nfc_activation.dart';
 import 'package:mobile_app/screens/register_bike/steps/step_2_establish_connection.dart';
@@ -12,7 +13,10 @@ class RegisterBikeFlow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => BikeRegistrationCubit()..init(),
+      create:
+          (context) =>
+              BikeRegistrationCubit(context.read<BluetoothConnectionRepo>())
+                ..init(),
       child: Builder(
         builder: (context) {
           return Scaffold(
@@ -30,6 +34,8 @@ class RegisterBikeFlow extends StatelessWidget {
                           ConnectionError() => Step2bConnectionError(
                             config: state.config,
                           ),
+                          // TODO: Handle this case.
+                          ScanningDevices() => throw UnimplementedError(),
                         };
                       },
                     ),
