@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_app/extensions/extensions.dart';
 import 'package:mobile_app/screens/home/components/bike_info_card.dart';
 
 class Home extends StatelessWidget {
