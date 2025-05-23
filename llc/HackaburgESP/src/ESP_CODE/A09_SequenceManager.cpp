@@ -3,24 +3,15 @@
 // Regelt, wann welche Sequenz aktiv ist
 void ESP_Steuerung::A09_SequenceManager()
 {
-    bool m_NoSequenceActive = true;
-    // check if no Sq active
-    for(int i = 0; i < NoOfSequences; i++){
-        if(m_SqActiveNo[i] == true){
-            m_NoSequenceActive = false;
-        }
-    }
-
-    // Check if any Sequence is active rn
-    if(!m_NoSequenceActive)
-        return;
-
     // Sq0 to call
     // Sq: Registrierung; 
     // not registered
     if(!m_Registered){
         m_SqActiveNo[0] = true;
         return;
+    }
+    else{
+       m_SqActiveNo[0] = false; 
     }
 
     // Sq1 to call
@@ -33,10 +24,13 @@ void ESP_Steuerung::A09_SequenceManager()
         m_SqActiveNo[1] = true;
         return;
     }
+    else{
+
+    }
 
     // Sq2 to call
     // Sq: Fahren V2X
-    // registered, driving
+    // registered, driving ALSO waiting to close
     if  (
                 m_Registered 
             &&  !m_BikeLocked
@@ -44,16 +38,27 @@ void ESP_Steuerung::A09_SequenceManager()
             //&&  m_Connected ??
         ){
             m_SqActiveNo[2] = true;
+            m_SqActiveNo[3] = true;
             return;
 
     }
 
     // Sq3 to call
-    // Sq: 
+    // Immer ready to lock wenn registered
+    if(
+            m_Registered
+        &&  !m_BikeLocked
+    ){
+        m_SqActiveNo[3] = true;
+    }
+
     // Sq4 to call
+    // Sq: Falsche UUID
+    // Wird von anderen Sq gerufen
 
     // Sq5 to call
-
+    // Sq: Bewegungssensor
+    // Wird von CommIn aufgerufen
 
 
 }

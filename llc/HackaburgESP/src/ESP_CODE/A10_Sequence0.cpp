@@ -4,7 +4,13 @@ void ESP_Steuerung::A10_Sequence0_Einrichtung(){
 
     // Quit if active flag not set
     if(!m_SqActiveNo[0])
+    {
+        // reset variables
+        sq0_startTime = 0;
+        m_sq0_first = true;
         return;
+    }
+        
     
     switch (int_0){ 
     
@@ -15,32 +21,77 @@ void ESP_Steuerung::A10_Sequence0_Einrichtung(){
         // Variablen Check
         case 1:
 
+            if(m_Registered)
+                m_SqActiveNo[0] = false;
+
         break;
 
         // RFID Authorization Check
         case 2:
-
+        // set time on first
+            if(m_sq0_first)
+            {
+                m_sq0_first = false;
+                sq0_startTime = millis();
+                sq0_timeout = 10000;
+            }
+            
+            // RFID Authorisation
+            if(c_electric.RFID())
+            {
+                int_0++;
+                m_sq0_first = true;
+            }    
+            
+            //check if timeout 
+            else if(sq0_startTime > sq0_timeout)
+                m_SqActiveNo[0] = false;
+            
+            else
+                return;
         break;
 
         // RFID Authorization Successfull -> Send UUID via Bluetooth
         case 3:
-
+            c_blueCom.sendComm("RFID Successfull"); // TODO
         break;
 
         // Wait for answer App
         case 4:
-
+           
+            // set time on first
+            if(m_sq0_first)
+            {
+                m_sq0_first = false;
+                sq0_startTime = millis();
+                sq0_timeout = 10000;
+            }
+            
+            if(c_blueCom.getComm() == "InputString") // TODO
+            {
+                 int_0++;
+                 m_sq0_first = true;
+            }   
+             //check if timeout 
+            else if(sq0_startTime > sq0_timeout)
+                m_SqActiveNo[0] = false;
+            
+            else
+                return;
         break;
 
         // End handshake App
         case 5:
-
+            m_Registered = true;
+            m_SqActiveNo[0] = false;
+            int_0 = 0;
         break;
 
 
         default:
             int_0 = 0;
-        break;
+            m_SqActiveNo[0] = false
     }
+
     return;
 }

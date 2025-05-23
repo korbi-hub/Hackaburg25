@@ -3,7 +3,19 @@
 // Wichtige Variablen werden zyklisch hier ausgelesen
 void ESP_Steuerung::A02_CommIn()
 {
-    
+    // check connection
+    m_Connected = c_blueCom.isConnected(&UUID);
+
+    // Check Accel dings
+    /*if (c_electric.accelsensorAlarm)
+    {
+        m_SqActiveNo[4] = true;
+    }
+    */
+
+    // button Activated from entprelltem signal
+    buttonPressed = c_electric.buttonActivated();
+
 }
 
 // Zyklische Comm nach aussen, falls es sowas gibt

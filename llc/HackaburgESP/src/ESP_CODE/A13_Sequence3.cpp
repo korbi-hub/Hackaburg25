@@ -27,28 +27,13 @@ void ESP_Steuerung::A13_Sequence3_Zusperren(){
 
         break;
 
-        // 
+        // End Sq 2
         case 4:
 
         break;
 
-        // 
+        // Lock
         case 5:
-
-        break;
-
-        // 
-        case 6:
-
-        break;
-
-        // 
-        case 7:
-
-        break;
-
-        // 
-        case 8:
 
         break;
 

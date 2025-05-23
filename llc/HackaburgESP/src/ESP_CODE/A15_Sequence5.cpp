@@ -2,7 +2,6 @@
 
 void ESP_Steuerung::A15_Sequence5_Beschleunigungssensor(){
 
-
             // Quit if active flag not set
     if(!m_SqActiveNo[5])
         return;
@@ -13,22 +12,22 @@ void ESP_Steuerung::A15_Sequence5_Beschleunigungssensor(){
         case 0:
             break;
         
-        // 
+        // Alarm & send to App
         case 1:
 
         break;
 
-        // 
+        // Wait App cancelling @grk hier noch handshake mit app?
         case 2:
 
         break;
 
-        // 
+        // Cancel Alarm
         case 3:
 
         break;
 
-        // 
+        // Send to App Alarm cancelled
         case 4:
 
         break;
