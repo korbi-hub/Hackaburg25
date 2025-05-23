@@ -7,7 +7,7 @@ class BikeInfoCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isConnected = true;
+    final isConnected = false;
     return Card(
       elevation: 5,
       child: Padding(
