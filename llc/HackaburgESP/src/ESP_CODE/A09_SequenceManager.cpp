@@ -3,6 +3,10 @@
 // Regelt, wann welche Sequenz aktiv ist
 void ESP_Steuerung::A09_SequenceManager()
 {
+
+    // TODO gucken ob irgendeine int_x laenger als 15s da sind 
+
+
     // Sq0 to call
     // Sq: Registrierung; 
     // not registered
@@ -24,9 +28,6 @@ void ESP_Steuerung::A09_SequenceManager()
         m_SqActiveNo[1] = true;
         return;
     }
-    else{
-
-    }
 
     // Sq2 to call
     // Sq: Fahren V2X
@@ -35,7 +36,6 @@ void ESP_Steuerung::A09_SequenceManager()
                 m_Registered 
             &&  !m_BikeLocked
             &&  m_Driving
-            //&&  m_Connected ??
         ){
             m_SqActiveNo[2] = true;
             m_SqActiveNo[3] = true;

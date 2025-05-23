@@ -18,4 +18,6 @@ void ESP_Steuerung::A01_Setup()
 
     // Sequences
     m_sq0_first = false;
+
+    // motor auf grundposition fahren
 }

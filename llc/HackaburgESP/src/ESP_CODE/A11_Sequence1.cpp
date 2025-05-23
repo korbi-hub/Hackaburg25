@@ -4,7 +4,10 @@ void ESP_Steuerung::A11_Sequence1_Aufsperren(){
 
     // Quit if active flag not set
     if(!m_SqActiveNo[1])
+    {
+        int_1 = 0;
         return;
+    }   
 
     switch (int_1){ 
     
@@ -14,13 +17,13 @@ void ESP_Steuerung::A11_Sequence1_Aufsperren(){
         
         // Check variables
         case 1:
-            if
-                (
+            if  (
                         !m_Registered
                     ||  !m_BikeLocked
                 )
             {
                 m_SqActiveNo[1] = false;
+                return;
             }
             int_1++;
         break;

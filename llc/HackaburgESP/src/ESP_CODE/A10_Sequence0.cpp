@@ -6,6 +6,7 @@ void ESP_Steuerung::A10_Sequence0_Einrichtung(){
     if(!m_SqActiveNo[0])
     {
         // reset variables
+        int_0 = 0;
         sq0_startTime = 0;
         m_sq0_first = true;
         return;
@@ -22,8 +23,10 @@ void ESP_Steuerung::A10_Sequence0_Einrichtung(){
         case 1:
 
             if(m_Registered)
+            {
                 m_SqActiveNo[0] = false;
-            
+                return;
+            }   
             int_0++;
         break;
 
