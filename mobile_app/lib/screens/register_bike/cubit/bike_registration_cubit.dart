@@ -23,7 +23,9 @@ class BikeRegistrationCubit extends Cubit<BikeRegistrationState> {
 
   Future<void> finishProcess(Bike bike, BuildContext context) async {
     final bikes = await repo.savedBikes;
-    repo.replaceBikes(bikes..add(bike));
+    if (!bikes.any((b) => b.lock?.lockUuid == bike.lock?.lockUuid)) {
+      repo.replaceBikes(bikes..add(bike));
+    }
     Navigator.pop(context);
   }
 }

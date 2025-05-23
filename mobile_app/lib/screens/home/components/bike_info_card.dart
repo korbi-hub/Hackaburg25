@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mobile_app/model/bike_with_device.dart';
+import 'package:mobile_app/screens/bluetooth_cubit/bluetooth_cubit.dart';
 
 class BikeInfoCard extends StatelessWidget {
-  final String bikeName;
+  final BikeWitDevice device;
 
-  const BikeInfoCard({super.key, required this.bikeName});
+  const BikeInfoCard({super.key, required this.device});
 
   @override
   Widget build(BuildContext context) {
-    final isConnected = false;
     return Card(
       elevation: 5,
       child: Padding(
@@ -16,32 +18,23 @@ class BikeInfoCard extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Row(
-              //mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  bikeName,
+                  device.bike.bikeName,
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                 ),
-                if (isConnected)
-                  Icon(Icons.check_circle, color: Colors.green, size: 30),
-                if (!isConnected)
-                  Icon(Icons.close, color: Colors.red, size: 30),
                 Spacer(),
                 ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    foregroundColor: Colors.black,
-                    backgroundColor: isConnected ? Colors.green : Colors.grey,
-                  ),
-                  onPressed: () {},
+                  onPressed: () {
+                    if (device.device != null) {
+                      context.read<BluetoothCubit>().debugSend(device.device!);
+                    }
+                  },
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text('Unlock  '),
-                      Icon(Icons.bluetooth),
-                    ],
+                    children: [Text('Unlock  '), Icon(Icons.bluetooth)],
                   ),
                 ),
-
               ],
             ),
           ],
