@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mobile_app/extensions/extensions.dart';
 import 'package:mobile_app/repositories/bluetooth_connection_repo.dart';
 import 'package:mobile_app/screens/register_bike/cubit/bike_registration_cubit.dart';
 import 'package:mobile_app/screens/register_bike/steps/step_1_nfc_activation.dart';
@@ -20,7 +21,9 @@ class RegisterBikeFlow extends StatelessWidget {
       child: Builder(
         builder: (context) {
           return Scaffold(
-            appBar: AppBar(),
+            appBar: AppBar(title: Text(context.translate.activateNcf),
+            backgroundColor: Colors.grey.shade300,
+            ),
             body: SafeArea(
               child: Padding(
                 padding: const EdgeInsets.all(12.0),

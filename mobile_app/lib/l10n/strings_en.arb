@@ -1,5 +1,6 @@
 {
-  "home": "Home screen",
+  "home": "Homescreen",
+  "appName": "SherLock",
   "registerBike": "Register bike",
   "registerYourBike": "Register your bike",
   "activateNcf": "Activate your lock via RFID",

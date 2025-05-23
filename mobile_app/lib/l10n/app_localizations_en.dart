@@ -9,7 +9,10 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
-  String get home => 'Home screen';
+  String get home => 'Homescreen';
+
+  @override
+  String get appName => 'SherLock';
 
   @override
   String get registerBike => 'Register bike';

@@ -97,8 +97,14 @@ abstract class AppLocalizations {
   /// No description provided for @home.
   ///
   /// In en, this message translates to:
-  /// **'Home screen'**
+  /// **'Homescreen'**
   String get home;
+
+  /// No description provided for @appName.
+  ///
+  /// In en, this message translates to:
+  /// **'SherLock'**
+  String get appName;
 
   /// No description provided for @registerBike.
   ///
