@@ -21,8 +21,9 @@ class RegisterBikeFlow extends StatelessWidget {
       child: Builder(
         builder: (context) {
           return Scaffold(
-            appBar: AppBar(title: Text(context.translate.activateNcf),
-            backgroundColor: Colors.grey.shade300,
+            appBar: AppBar(
+              title: Text(context.translate.activateNcf),
+              backgroundColor: Colors.grey.shade300,
             ),
             body: SafeArea(
               child: Padding(
