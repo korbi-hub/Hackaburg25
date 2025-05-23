@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mobile_app/extensions/extensions.dart';
+import 'package:mobile_app/screens/register_bike/cubit/bike_registration_cubit.dart';
 
 class Step1RfidActivation extends StatelessWidget {
   const Step1RfidActivation({super.key});
@@ -13,7 +15,8 @@ class Step1RfidActivation extends StatelessWidget {
         Expanded(child: Text(context.translate.activateNfcMessage)),
         Spacer(),
         ElevatedButton(
-          onPressed: () {},
+          onPressed:
+              () => context.read<BikeRegistrationCubit>().startScanning(),
           child: Text(context.translate.continueProcess),
         ),
       ],
