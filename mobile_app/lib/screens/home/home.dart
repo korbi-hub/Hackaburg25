@@ -4,30 +4,23 @@ import 'package:mobile_app/screens/home/components/bike_info_card.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
-
+final count = 10;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(context.translate.appName),
-        backgroundColor: Colors.green,
-      ),
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(12.0),
-          child: Column(
-            children: [
-              /* Icon(
+    return SingleChildScrollView(
+      physics: AlwaysScrollableScrollPhysics(),
+      child: Column(
+        children: [
+          for (var i = 0; i < count; i++) ...[
+            /* Icon(
                 Icons.accessible_forward,
                 color: Colors.pink,
                 size: 300,
               )*/
-              BikeInfoCard(bikeName: 'MTB'),
-              BikeInfoCard(bikeName: 'Rennrad',)
-
-            ],
-          ),
-        ),
+            BikeInfoCard(bikeName: 'MTB'),
+            if (i != count) Divider(),
+          ],
+        ],
       ),
     );
   }
