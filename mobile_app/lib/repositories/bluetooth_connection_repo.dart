@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:mobile_app/model/bike_with_device.dart';
 import 'package:mobile_app/model/saved_bike.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -18,6 +19,12 @@ class BluetoothConnectionRepo {
     } on Exception catch (e) {
       return [];
     }
+  }
+
+  Future<List<BikeWitDevice>> savedBikesWithDevices() async {
+    return (await savedBikes)
+        .map((bike) => BikeWitDevice.fromBike(bike))
+        .toList();
   }
 
   Future<void> replaceBikes(List<Bike> bikes) async {

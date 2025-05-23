@@ -4,6 +4,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:mobile_app/l10n/app_localizations.dart';
 import 'package:mobile_app/repositories/bluetooth_connection_repo.dart';
 import 'package:mobile_app/screens/bluetooth_cubit/bluetooth_cubit.dart';
+import 'package:mobile_app/screens/home/cubit/home_cubit.dart';
 import 'package:mobile_app/screens/nav_wrapper.dart';
 
 void main() {
@@ -18,11 +19,21 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return RepositoryProvider<BluetoothConnectionRepo>(
       create: (context) => BluetoothConnectionRepo(),
-      child: BlocProvider<BluetoothCubit>(
-        create:
-            (context) =>
-                BluetoothCubit(repo: context.read<BluetoothConnectionRepo>())
-                  ..init(),
+      child: MultiBlocProvider(
+        providers: [
+          BlocProvider<BluetoothCubit>(
+            create:
+                (context) => BluetoothCubit(
+                  repo: context.read<BluetoothConnectionRepo>(),
+                )..init(),
+          ),
+          BlocProvider<HomeCubit>(
+            create:
+                (context) =>
+                    HomeCubit(context.read<BluetoothConnectionRepo>())
+                      ..getBikes(),
+          ),
+        ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
           localizationsDelegates: [
