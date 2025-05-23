@@ -6,13 +6,6 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(12.0),
-          child: Column(children: [Text(context.translate.home)]),
-        ),
-      ),
-    );
+    return Column(children: [Text(context.translate.home)]);
   }
 }
