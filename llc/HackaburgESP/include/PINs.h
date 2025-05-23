@@ -1,0 +1,11 @@
+#define PIN_BUZZER 5
+
+#define PIN_LED_RED 6
+#define PIN_LED_GREEN 7
+#define PIN_LED_BLUE 8
+
+// TODO RFID RECHERCHIEREN
+
+#define PIN_ACCELSENSOR A1
+
+#define MOTOR_PWM 20

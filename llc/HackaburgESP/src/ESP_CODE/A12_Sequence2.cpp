@@ -2,6 +2,10 @@
 
 void ESP_Steuerung::A12_Sequence2_FahrenV2X(){
 
+        // Quit if active flag not set
+    if(!m_SqActiveNo[2])
+        return;
+
     switch (int_2){ 
     
         // Skip

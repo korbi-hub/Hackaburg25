@@ -2,6 +2,10 @@
 
 void ESP_Steuerung::A10_Sequence0_Einrichtung(){
 
+    // Quit if active flag not set
+    if(!m_SqActiveNo[0])
+        return;
+    
     switch (int_0){ 
     
         // Skip

@@ -2,6 +2,10 @@
 
 void ESP_Steuerung::A11_Sequence1_Aufsperren(){
 
+    // Quit if active flag not set
+    if(!m_SqActiveNo[1])
+        return;
+
     switch (int_1){ 
     
         // Skip

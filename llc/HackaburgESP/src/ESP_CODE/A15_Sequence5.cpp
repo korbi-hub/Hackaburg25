@@ -2,6 +2,11 @@
 
 void ESP_Steuerung::A15_Sequence5_Beschleunigungssensor(){
 
+
+            // Quit if active flag not set
+    if(!m_SqActiveNo[5])
+        return;
+
     switch (int_5){ 
     
         // Skip

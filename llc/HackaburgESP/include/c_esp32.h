@@ -2,6 +2,7 @@
 
 #include <string>
 #include <iostream>
+#define NoOfSequences 6
 
 class ESP_Steuerung{
 public:
@@ -26,41 +27,29 @@ void A31_CommOut();     // Output (Bluetooth Com) ausgeben
 
 
 /////////////////////// VARIABLEN ///////////////////////////////////
-enum class Sequence {
-        None = 0,
-        Einrichtung0 = 1,
-        Entsperren1 = 2,
-        Fahren2 = 3,
-        Sperren3 = 4,
-        WrongUUID4 = 5,
-        Beschleunigungssensor5 = 6
-    };
+
 private:
     // variables
     bool m_Connected, m_Registered, m_BikeLocked, m_Driving;
     std::string UUID;
-    Sequence ENUM_ActiveSequence;
 
     //Electronics c_electric;
     //BluetoothCom c_blueCom;
 
+    // Sequences
+    bool m_SqActiveNo[NoOfSequences];
+
     // 6 Sequenzarten:
     // Sequenz 0: Einrichtung
     int int_0;
-    bool m_Sq0_Active;
     // Sequenz 1: Aufsperren
     int int_1;
-    bool m_Sq1_Active;
     // Sequenz 2: Fahren (V2X)
     int int_2;
-    bool m_Sq2_Active;
     // Sequenz 3: Zusperren
     int int_3;
-    bool m_Sq3_Active;
     // Sequenz 4: Falsche UUID
     int int_4;
-    bool m_Sq64_Active;
     // Sequenz 5: Beschleunigungssensor geht an
     int int_5;
-    bool m_Sq5_Active;
 };

@@ -2,6 +2,10 @@
 
 void ESP_Steuerung::A14_Sequence4_FalscheUUID(){
 
+            // Quit if active flag not set
+    if(!m_SqActiveNo[4])
+        return;
+
     switch (int_4){ 
     
         // Skip

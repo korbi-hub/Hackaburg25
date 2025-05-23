@@ -1,4 +1,5 @@
 #pragma once
+#include "PINs.h"
 
 class Electronic{
 public:
@@ -8,7 +9,7 @@ public:
     void Connection(bool m_ConnectSuccess);
     void ServoMotorOpen(bool m_Open);
     
-    int GetValueAccelSensor();
+    long GetValueAccelSensor();
     // interrupt für Beschleunigungssensor und auslesen
     bool buttonActivated(); // mit button library entprellen?
     bool RFID();
