@@ -2,6 +2,7 @@
 
 #include <string>
 #include <iostream>
+#include <Arduino.h>
 
 #include "c_electric.h"
 #include "c_bluetoothCom.h"
@@ -44,7 +45,7 @@ private:
     BluetoothCom c_blueCom;
     
     // variables
-    bool buttonPressed = false;
+    bool m_buttonPressed = false;
 
     
     // Sequences

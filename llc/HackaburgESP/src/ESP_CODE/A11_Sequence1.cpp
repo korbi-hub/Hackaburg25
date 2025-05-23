@@ -1,4 +1,6 @@
 #include "c_esp32.h"
+#include <cstring>
+#include <Arduino.h>
 
 void ESP_Steuerung::A11_Sequence1_Aufsperren(){
 
@@ -36,7 +38,7 @@ void ESP_Steuerung::A11_Sequence1_Aufsperren(){
 
         // Wait for Command (& therefore UUID)
         case 3:
-            if(strcmp(c_blueCom.getComm(),"InputString") == 0) // TODO
+            if(strcmp(c_blueCom.getComm().c_str(),"InputString") == 0) // TODO
                 int_1++;
         break;
         
@@ -57,6 +59,7 @@ void ESP_Steuerung::A11_Sequence1_Aufsperren(){
             c_blueCom.sendComm("Lock Open");
             int_1 = 0;
             m_SqActiveNo[1] = false;
+            m_Driving = true;
         break;
         
         default:

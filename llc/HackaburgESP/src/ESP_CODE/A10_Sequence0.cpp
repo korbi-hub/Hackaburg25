@@ -1,4 +1,6 @@
 #include "c_esp32.h"
+#include <cstring>
+#include <Arduino.h>
 
 void ESP_Steuerung::A10_Sequence0_Einrichtung(){
 
@@ -12,7 +14,6 @@ void ESP_Steuerung::A10_Sequence0_Einrichtung(){
         return;
     }
         
-    
     switch (int_0){ 
     
         // Skip
@@ -70,8 +71,7 @@ void ESP_Steuerung::A10_Sequence0_Einrichtung(){
                 sq0_startTime = millis();
                 sq0_timeout = 10000;
             }
-            
-            if(strcmp(c_blueCom.getComm(),"InputString") == 0) // TODO
+            if(strcmp(c_blueCom.getComm().c_str(),"InputString") == 0) // TODO
             {
                  int_0++;
                  m_sq0_first = true;
@@ -94,7 +94,7 @@ void ESP_Steuerung::A10_Sequence0_Einrichtung(){
 
         default:
             int_0 = 0;
-            m_SqActiveNo[0] = false
+            m_SqActiveNo[0] = false;
     }
 
     return;

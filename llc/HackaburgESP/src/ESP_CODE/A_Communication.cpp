@@ -14,7 +14,7 @@ void ESP_Steuerung::A02_CommIn()
     */
 
     // button Activated from entprelltem signal
-    buttonPressed = c_electric.buttonActivated();
+    m_buttonPressed = c_electric.buttonActivated();
 
 }
 

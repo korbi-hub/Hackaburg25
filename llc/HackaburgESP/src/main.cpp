@@ -1,4 +1,3 @@
-#include <Arduino.h>
 #include "c_esp32.h"
 
 ESP_Steuerung* c_esp = new ESP_Steuerung(); 
@@ -19,7 +18,6 @@ void loop() {
   c_esp->A13_Sequence3_Zusperren();
   c_esp->A14_Sequence4_FalscheUUID();
   c_esp->A15_Sequence5_Beschleunigungssensor();
-  
   c_esp->A30_Messages();
   c_esp->A31_CommOut();
 }

@@ -9,7 +9,7 @@ void ESP_Steuerung::A12_Sequence2_FahrenV2X(){
         return;
     }
     std::string tempUUID;
-    
+
     switch (int_2){ 
     
         // Skip
@@ -37,7 +37,7 @@ void ESP_Steuerung::A12_Sequence2_FahrenV2X(){
             if(c_blueCom.isConnected(&tempUUID))
             {
                 // different UUID
-                if(strcmp(tempUUID, UUID) != 0)
+                if(strcmp(tempUUID.c_str(), UUID.c_str()) != 0)
                     int_2++;
             }
 
