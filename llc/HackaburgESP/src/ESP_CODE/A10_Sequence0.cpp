@@ -23,7 +23,8 @@ void ESP_Steuerung::A10_Sequence0_Einrichtung(){
 
             if(m_Registered)
                 m_SqActiveNo[0] = false;
-
+            
+            int_0++;
         break;
 
         // RFID Authorization Check
@@ -67,7 +68,7 @@ void ESP_Steuerung::A10_Sequence0_Einrichtung(){
                 sq0_timeout = 10000;
             }
             
-            if(c_blueCom.getComm() == "InputString") // TODO
+            if(strcmp(c_blueCom.getComm(),"InputString") == 0) // TODO
             {
                  int_0++;
                  m_sq0_first = true;
