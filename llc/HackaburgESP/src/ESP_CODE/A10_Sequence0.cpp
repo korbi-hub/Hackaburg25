@@ -42,7 +42,7 @@ void ESP_Steuerung::A10_Sequence0_Einrichtung(){
             }
             
             // RFID Authorisation
-            if(c_electric.RFID())
+            if(c_electric.RFID(UUID))
             {
                 int_0++;
                 m_sq0_first = true;
