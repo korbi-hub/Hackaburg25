@@ -30,7 +30,9 @@ class RegisterBikeFlow extends StatelessWidget {
                         return switch (state) {
                           RfidActivation() => Step1RfidActivation(),
                           EstablishConnection() => Step2EstablishConnection(),
-                          ConnectionSuccess() => Step2aConnectionSuccess(),
+                          ConnectionSuccess() => Step2aConnectionSuccess(
+                            device: state.device,
+                          ),
                           ConnectionError() => Step2bConnectionError(
                             config: state.config,
                           ),

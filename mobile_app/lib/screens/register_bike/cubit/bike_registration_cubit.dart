@@ -1,5 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_blue_plus/flutter_blue_plus.dart';
+import 'package:go_router/go_router.dart';
+import 'package:mobile_app/extensions/extensions.dart';
 import 'package:mobile_app/model/saved_bike.dart';
 import 'package:mobile_app/repositories/bluetooth_connection_repo.dart';
 import 'package:mobile_app/screens/register_bike/error_screen_config/error_screen_config.dart';
@@ -13,11 +16,16 @@ class BikeRegistrationCubit extends Cubit<BikeRegistrationState> {
 
   BikeRegistrationCubit(this.repo) : super(RfidActivation());
 
-  Future<void> init() async {
-    savedBikes = await repo.savedBikes;
-  }
+  Future<void> init() async => savedBikes = await repo.savedBikes;
 
-  void startScanning() {
-    emit(EstablishConnection());
+  void startScanning() => emit(EstablishConnection());
+
+  void goToRegistration(BluetoothDevice device) =>
+      emit(ConnectionSuccess(device));
+
+  Future<void> finishProcess(Bike bike, BuildContext context) async {
+    final bikes = await repo.savedBikes;
+    repo.replaceBikes(bikes..add(bike));
+    Navigator.pop(context);
   }
 }
