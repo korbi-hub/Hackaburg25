@@ -31,6 +31,19 @@ class NavWrapper extends StatelessWidget {
           ),
         ),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: Align(
+        alignment: Alignment.bottomCenter,
+        child: FloatingActionButton(
+          onPressed:
+              () => context.navigator.push(
+                MaterialPageRoute(
+                  builder: (context) => const RegisterBikeFlow(),
+                ),
+              ),
+          child: Icon(Icons.directions_bike),
+        ),
+      ),
       bottomNavigationBar: ValueListenableBuilder(
         valueListenable: indexNotifier,
         builder: (context, value, child) {
@@ -40,10 +53,6 @@ class NavWrapper extends StatelessWidget {
               BottomNavigationBarItem(
                 label: context.translate.home,
                 icon: Icon(Icons.home),
-              ),
-              BottomNavigationBarItem(
-                label: context.translate.registerBike,
-                icon: Icon(Icons.directions_bike),
               ),
               BottomNavigationBarItem(
                 label: context.translate.stats,
