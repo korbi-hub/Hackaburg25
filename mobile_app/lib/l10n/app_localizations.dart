@@ -127,8 +127,14 @@ abstract class AppLocalizations {
   /// No description provided for @activateNfcMessage.
   ///
   /// In en, this message translates to:
-  /// **'To connect to your bike lock you first need to activate the Bike with the RFID chip you received with the lock.\n\nPlease place the RFID chip on the lock and wait until you can hear it beep. After you heard the noise, please press on \"Continue process\"'**
+  /// **'To connect to your bike lock you first need to activate the Bike with the RFID chip you received with the lock.'**
   String get activateNfcMessage;
+
+  /// No description provided for @activateNfcMessage2.
+  ///
+  /// In en, this message translates to:
+  /// **'Please place the RFID chip on the lock and wait until you can hear it beep. After you heard the noise, please press on \"Continue process\".'**
+  String get activateNfcMessage2;
 
   /// No description provided for @continueProcess.
   ///

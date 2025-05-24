@@ -11,17 +11,34 @@ class Step1RfidActivation extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        //Text(context.translate.activateNcf),
-        //Spacer(),
-        Text(
-          context.translate.activateNfcMessage,
-          style: context.textTheme.bodyMedium,
+        Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(bottom: 12.0),
+              child: Text(
+                context.translate.activateNcf,
+                style: context.textTheme.titleSmall,
+              ),
+            ),
+            Text(
+              context.translate.activateNfcMessage,
+              style: context.textTheme.bodyMedium,
+              textAlign: TextAlign.center,
+            ),
+          ],
         ),
-        SizedBox(height: 30),
-        SvgPicture.asset('assets/Untitled.svg', width: 256, height: 256),
-        SizedBox(height: 50),
-        //Spacer(),
+        SvgPicture.asset(
+          'assets/Untitled.svg',
+          width: MediaQuery.of(context).size.width / 2,
+        ),
+        Text(
+          context.translate.activateNfcMessage2,
+          style: context.textTheme.bodyMedium,
+          textAlign: TextAlign.center,
+        ),
         FilledButton.tonal(
           onPressed:
               () => context.read<BikeRegistrationCubit>().startScanning(),
