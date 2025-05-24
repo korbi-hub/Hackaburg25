@@ -3,11 +3,11 @@
 bool Electronic::AccelSensorTriggered(){return 0;}    // evaluate sensor data
 
 // mit button library entprellen?
-bool Electronic::buttonActivated(){
+bool Electronic::buttonActivated(short buttonPin){ 
     const unsigned long now = millis();
 
     // 1) aktuellen Tasterpegel einlesen
-    const bool pressed = (digitalRead(PIN_BUTTON) == LOW); // LOW = gedrückt (Pull-up)
+    const bool pressed = (digitalRead(buttonPin) == LOW); // LOW = gedrückt (Pull-up)
 
     // 2) Flanke erkennen – nur reagieren, wenn Pegel von „nicht gedrückt“
     //    auf „gedrückt“ wechselt (entprellt genügt hier meist, weil nur eine

@@ -45,7 +45,7 @@ private:
     BluetoothCom c_blueCom;
     
     // variables
-    bool m_buttonPressed = false;
+    bool m_buttonLockPressed = false, m_buttonUnlockPressed = false;
 
     // alarm
     unsigned long t_AlarmOnTime = 0;

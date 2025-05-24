@@ -31,7 +31,7 @@ void ESP_Steuerung::A13_Sequence3_Zusperren(){
 
         // Wait Button Pushed
         case 3:
-            if(m_buttonPressed)
+            if(m_buttonLockPressed)
             {
                 int_Sq[3]++;
             }

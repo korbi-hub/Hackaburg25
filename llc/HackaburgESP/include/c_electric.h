@@ -14,7 +14,7 @@ public:
     bool Connection(bool m_ConnectSuccess); // short celebration, send true if done with animation
     
     bool AccelSensorTriggered();    // evaluate sensor data
-    bool buttonActivated(); // mit button library entprellen?
+    bool buttonActivated(short buttonPin); // mit button library entprellen?
     bool RFID(std::string& UUID_Pointer);   // return: true if scan was correct / give "UUID_Pointer" the value 
 private:
     long GetValueAccelSensor();

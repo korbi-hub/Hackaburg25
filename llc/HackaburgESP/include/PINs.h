@@ -10,4 +10,5 @@
 
 #define MOTOR_PWM 20
 
-#define PIN_BUTTON 12
+#define PIN_UNLOCK_BUTTON 12
+#define PIN_LOCK_BUTTON 13
