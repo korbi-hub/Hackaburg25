@@ -6,7 +6,7 @@ import 'package:mobile_app/repositories/bluetooth_connection_repo.dart';
 part 'home_state.dart';
 
 class HomeCubit extends Cubit<HomeState> {
-  final BluetoothConnectionRepo repo;
+  final SharedPreferencesRepo repo;
 
   HomeCubit(this.repo) : super(HomeInitial());
 

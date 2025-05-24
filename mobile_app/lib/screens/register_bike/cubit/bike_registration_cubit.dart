@@ -8,7 +8,7 @@ import 'package:mobile_app/screens/register_bike/error_screen_config/error_scree
 part 'bike_registration_state.dart';
 
 class BikeRegistrationCubit extends Cubit<BikeRegistrationState> {
-  final BluetoothConnectionRepo repo;
+  final SharedPreferencesRepo repo;
 
   late final List<Bike> savedBikes;
 

@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_blue_plus/flutter_blue_plus.dart';
 import 'package:mobile_app/extensions/extensions.dart';
 import 'package:mobile_app/model/saved_bike.dart';
+import 'package:mobile_app/screens/home/cubit/home_cubit.dart';
 import 'package:mobile_app/screens/register_bike/cubit/bike_registration_cubit.dart';
 
 class Step2aConnectionSuccess extends StatelessWidget {
@@ -49,6 +50,7 @@ class Step2aConnectionSuccess extends StatelessWidget {
                   ),
                   context,
                 );
+                context.read<HomeCubit>().getBikes();
               },
               child: Text(context.translate.addBike),
             ),

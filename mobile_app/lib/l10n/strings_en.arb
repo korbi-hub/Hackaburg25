@@ -1,6 +1,6 @@
 {
   "home": "Homescreen",
-  "appName": "SherLock",
+  "appName": "ShareLock",
   "registerBike": "Register bike",
   "registerYourBike": "Register your bike",
   "activateNcf": "Activate your lock via RFID",
@@ -12,5 +12,7 @@
   "stats": "Stats",
   "retryScan": "Retry scan",
   "bikeNameLabel": "Bike name",
-  "addBike": "Add bike"
+  "addBike": "Add bike",
+  "kilometersLastMonth": "Travelled kilometers",
+  "monthlyStats": "Monthly Stats"
 }

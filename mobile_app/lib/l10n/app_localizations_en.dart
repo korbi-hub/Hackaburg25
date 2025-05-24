@@ -12,7 +12,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get home => 'Homescreen';
 
   @override
-  String get appName => 'SherLock';
+  String get appName => 'ShareLock';
 
   @override
   String get registerBike => 'Register bike';
@@ -50,4 +50,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get addBike => 'Add bike';
+
+  @override
+  String get kilometersLastMonth => 'Travelled kilometers';
+
+  @override
+  String get monthlyStats => 'Monthly Stats';
 }
