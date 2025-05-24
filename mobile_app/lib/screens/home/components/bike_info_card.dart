@@ -12,7 +12,8 @@ class BikeInfoCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 5,
+      color: Colors.grey.shade300,
+      elevation: 0.5,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
