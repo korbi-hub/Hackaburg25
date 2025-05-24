@@ -27,8 +27,8 @@ class Step2aConnectionSuccess extends StatelessWidget {
             labelText: context.translate.bikeNameLabel,
             border: OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
             suffixIcon: GestureDetector(
-              onTap: () {
-                context.read<BikeRegistrationCubit>().finishProcess(
+              onTap: () async {
+                await context.read<BikeRegistrationCubit>().finishProcess(
                   Bike(
                     bikeName: controller.value.text,
                     lock: BikeLock(
@@ -38,7 +38,7 @@ class Step2aConnectionSuccess extends StatelessWidget {
                   ),
                   context,
                 );
-                context.read<HomeCubit>().getBikes();
+                await context.read<HomeCubit>().getBikes();
               },
               child: Icon(Icons.save),
             ),

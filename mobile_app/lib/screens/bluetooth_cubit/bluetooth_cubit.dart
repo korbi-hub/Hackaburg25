@@ -6,7 +6,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_blue_plus/flutter_blue_plus.dart';
 import 'package:mobile_app/repositories/bluetooth_connection_repo.dart';
-import 'package:mobile_app/model/saved_bike.dart';
 
 part 'bluetooth_state.dart';
 
