@@ -15,5 +15,9 @@ bool isConnected(std::string* str_UUID); // gibt Status von connected aus und li
 
 private:
     bool connected;
+    // 
+    bool waitingForAck = false;
+    unsigned long lastSendTime = 0;
+    std::string lastSentMessage;
     BLEHandler BLE;
 };
