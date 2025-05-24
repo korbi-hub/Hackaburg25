@@ -16,7 +16,7 @@ class RegisterBikeFlow extends StatelessWidget {
     return BlocProvider(
       create:
           (context) =>
-              BikeRegistrationCubit(context.read<BluetoothConnectionRepo>())
+              BikeRegistrationCubit(context.read<SharedPreferencesRepo>())
                 ..init(),
       child: Builder(
         builder: (context) {

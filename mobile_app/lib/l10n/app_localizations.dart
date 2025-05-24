@@ -103,7 +103,7 @@ abstract class AppLocalizations {
   /// No description provided for @appName.
   ///
   /// In en, this message translates to:
-  /// **'SherLock'**
+  /// **'ShareLock'**
   String get appName;
 
   /// No description provided for @registerBike.
@@ -177,6 +177,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Add bike'**
   String get addBike;
+
+  /// No description provided for @kilometersLastMonth.
+  ///
+  /// In en, this message translates to:
+  /// **'Travelled kilometers'**
+  String get kilometersLastMonth;
+
+  /// No description provided for @monthlyStats.
+  ///
+  /// In en, this message translates to:
+  /// **'Monthly Stats'**
+  String get monthlyStats;
 }
 
 class _AppLocalizationsDelegate

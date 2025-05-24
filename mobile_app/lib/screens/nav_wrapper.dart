@@ -28,8 +28,7 @@ class NavWrapper extends StatelessWidget {
             valueListenable: indexNotifier,
             builder:
                 (context, value, widget) => switch (value) {
-                  1 => RegisterBikeFlow(),
-                  2 => StatsScreen(),
+                  1 => StatsScreen(),
                   _ => Home(),
                 },
           ),

@@ -3,9 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:mobile_app/l10n/app_localizations.dart';
 import 'package:mobile_app/repositories/bluetooth_connection_repo.dart';
+import 'package:mobile_app/repositories/http_repo.dart';
 import 'package:mobile_app/screens/bluetooth_cubit/bluetooth_cubit.dart';
 import 'package:mobile_app/screens/home/cubit/home_cubit.dart';
 import 'package:mobile_app/screens/nav_wrapper.dart';
+import 'package:mobile_app/screens/prodximity_cubi/proximity_cubit.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,21 +19,29 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RepositoryProvider<BluetoothConnectionRepo>(
-      create: (context) => BluetoothConnectionRepo(),
+    return MultiRepositoryProvider(
+      providers: [
+        RepositoryProvider<SharedPreferencesRepo>(
+          create: (context) => SharedPreferencesRepo(),
+        ),
+        RepositoryProvider(create: (context) => HttpRepo()),
+      ],
       child: MultiBlocProvider(
         providers: [
           BlocProvider<BluetoothCubit>(
             create:
-                (context) => BluetoothCubit(
-                  repo: context.read<BluetoothConnectionRepo>(),
-                )..init(),
+                (context) =>
+            BluetoothCubit(repo: context.read<SharedPreferencesRepo>())
+              ..init(),
           ),
           BlocProvider<HomeCubit>(
             create:
                 (context) =>
-                    HomeCubit(context.read<BluetoothConnectionRepo>())
-                      ..getBikes(),
+            HomeCubit(context.read<SharedPreferencesRepo>())
+              ..getBikes(),
+          ),
+          BlocProvider<ProximityCubit>(
+            create: (context) => ProximityCubit(context.read<HttpRepo>()),
           ),
         ],
         child: MaterialApp(
@@ -50,7 +60,14 @@ class MyApp extends StatelessWidget {
           ),
           home: Builder(
             builder: (context) {
-              return NavWrapper();
+              return BlocListener<ProximityCubit, ProximityState>(
+                listener: (context, state) {
+                  if (state is IsInDanger && state.isTooClose!) {
+                    // TODO: Make a beep noise
+                  }
+                },
+                child: NavWrapper(),
+              );
             },
           ),
         ),
