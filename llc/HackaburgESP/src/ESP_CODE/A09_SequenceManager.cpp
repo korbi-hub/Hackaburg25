@@ -4,8 +4,21 @@
 void ESP_Steuerung::A09_SequenceManager()
 {
 
-    // TODO gucken ob irgendeine int_x laenger als 15s da sind 
+    // TODO gucken ob irgendeine int_x laenger als 10s da sind 
+    for(int i = 0; i < NoOfSequences; i++)
+    {
+        if(     int_SqStepPrev[i] != int_Sq[i]
+            &&  int_Sq[i] != 0)
+        {
+            sq_Time[i] = millis();
+            int_SqStepPrev[i] = int_Sq[i];
+        }
+        else if((millis() - sq_Time[i]) > sq_timeout)   // nach 10s neu evaluieren
+        {
+            int_Sq[i] = 0;
+        }
 
+    }
 
     // Sq0 to call
     // Sq: Registrierung; 

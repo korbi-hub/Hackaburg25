@@ -47,25 +47,23 @@ private:
     // variables
     bool m_buttonPressed = false;
 
-    
+    // alarm
+    unsigned double t_AlarmOnTime = 0;
+
     // Sequences
     bool m_SqActiveNo[NoOfSequences];
 
     // 6 Sequenzarten:
-    // Sequenz 0: Einrichtung
-    int int_0 = 0;
-    unsigned long sq0_timeout = 5000; // 5 Sekunden
-    unsigned long sq0_startTime;
+    unsigned long sq_timeout = 10000; // 5 Sekunden
     bool m_sq0_first;
+    unsigned long sq_Time[NoOfSequences] = {0};
+    int int_SqStepPrev[NoOfSequences] = {0};
+    int int_Sq[NoOfSequences] = {0};
+    // Sequenz 0: Einrichtung
     // Sequenz 1: Aufsperren
-    int int_1 = 0;
     // Sequenz 2: Fahren (V2X)
-    int int_2 = 0;
     // Sequenz 3: Zusperren
-    int int_3 = 0;
     // Sequenz 4: Falsche UUID
-    int int_4 = 0;
     // Sequenz 5: Beschleunigungssensor geht an
-    int int_5 = 0;
 
 };

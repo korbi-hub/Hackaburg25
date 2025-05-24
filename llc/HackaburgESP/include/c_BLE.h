@@ -34,11 +34,13 @@ public:
     
     std::string getLastReceived() const { return _lastReceived; }
     unsigned long receiveTime = 0; // Zeit in der Empfangen wurde 
-private:
+    std::string getUUID() const { return _serviceUUID; }
+
+    private:
     // interne Callback‑Klassen
     class ServerCallbacks;
     class CharacteristicCallbacks;
-
+    
     std::string _deviceName;
     std::string _serviceUUID;
     std::string _characteristicUUID;

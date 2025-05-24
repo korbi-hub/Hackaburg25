@@ -5,11 +5,8 @@ void ESP_Steuerung::A13_Sequence3_Zusperren(){
         // Quit if active flag not set
     if(!m_SqActiveNo[3])
         return;
-    
-    std::string dummy;
-    
+        
     switch (int_3){ 
-    
         // Skip
         case 0:
             break;
@@ -29,10 +26,7 @@ void ESP_Steuerung::A13_Sequence3_Zusperren(){
 
         // Connect (if necessary)
         case 2:
-            if(c_blueCom.isConnected(&dummy))
-            {
-                int_3++;
-            }
+            int_3++;
         break;
 
         // Wait Button Pushed
@@ -47,11 +41,15 @@ void ESP_Steuerung::A13_Sequence3_Zusperren(){
         case 4:
             m_Driving = false;
             m_SqActiveNo[2] = false;
+            int_3++;
         break;
 
         // Lock
         case 5:
-
+            c_electric.ServoMotorOpen(false);
+            delay(500);
+            int_3 = 0;
+            m_SqActiveNo[2] = true;
         break;
 
 

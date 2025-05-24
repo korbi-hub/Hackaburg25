@@ -14,7 +14,7 @@ void loop() {
   c_esp->A09_SequenceManager();
   c_esp->A10_Sequence0_Einrichtung();
   c_esp->A11_Sequence1_Aufsperren();
-  c_esp->A12_Sequence2_FahrenV2X();
+  //c_esp->A12_Sequence2_FahrenV2X();
   c_esp->A13_Sequence3_Zusperren();
   c_esp->A14_Sequence4_FalscheUUID();
   c_esp->A15_Sequence5_Beschleunigungssensor();

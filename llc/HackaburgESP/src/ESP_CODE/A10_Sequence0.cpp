@@ -9,7 +9,6 @@ void ESP_Steuerung::A10_Sequence0_Einrichtung(){
     {
         // reset variables
         int_0 = 0;
-        sq0_startTime = 0;
         m_sq0_first = true;
         return;
     }
@@ -33,60 +32,28 @@ void ESP_Steuerung::A10_Sequence0_Einrichtung(){
 
         // RFID Authorization Check
         case 2:
-        // set time on first
-            if(m_sq0_first)
-            {
-                m_sq0_first = false;
-                sq0_startTime = millis();
-                sq0_timeout = 10000;
-            }
-            
             // RFID Authorisation
             if(c_electric.RFID(UUID))
             {
                 int_0++;
                 m_sq0_first = true;
-            }    
-            
-            //check if timeout 
-            else if(sq0_startTime > sq0_timeout)
-                m_SqActiveNo[0] = false;
-            
+            }                
             else
                 return;
         break;
 
-        // RFID Authorization Successfull -> Send UUID via Bluetooth
+        // RFID Authorization Successfull -> Check connection available Bluetooth
         case 3:
-            c_blueCom.sendComm("RFID Successfull"); // TODO
-        break;
-
-        // Wait for answer App
-        case 4:
-           
-            // set time on first
-            if(m_sq0_first)
+            // waere bloed wenn jemand anderes sich damit verbindet!
+            if(c_blueCom.isConnected(&UUID))
             {
-                m_sq0_first = false;
-                sq0_startTime = millis();
-                sq0_timeout = 10000;
+                // successful registration
+                m_Registered = true;
             }
-            if(strcmp(c_blueCom.getComm().c_str(),"InputString") == 0) // TODO
-            {
-                 int_0++;
-                 m_sq0_first = true;
-            }   
-             //check if timeout 
-            else if(sq0_startTime > sq0_timeout)
-                m_SqActiveNo[0] = false;
-            
-            else
-                return;
         break;
 
         // End handshake App
-        case 5:
-            m_Registered = true;
+        case 4:
             m_SqActiveNo[0] = false;
             int_0 = 0;
         break;

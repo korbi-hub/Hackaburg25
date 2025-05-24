@@ -26,6 +26,7 @@ void BluetoothCom::sendComm(std::string dataOut){
 }   
 bool BluetoothCom::isConnected(std::string* str_UUID){
     BLE->isConnected();
+    *str_UUID = BLE->getUUID();
     return false;
 } // gibt Status von connected aus und liefert ggf. gelesene UUID
 
