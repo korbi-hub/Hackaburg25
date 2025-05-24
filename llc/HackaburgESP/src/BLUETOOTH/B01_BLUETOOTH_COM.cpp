@@ -4,7 +4,9 @@
 
 BluetoothCom::BluetoothCom(){
     BLE = new BLEHandler();
+    Serial.printf("in bluetoothCom");
     BLE->begin();
+    Serial.printf("bluetootj setup done");
 }
 
  // liefert String ohne extra Protokoll an Hauptklasse

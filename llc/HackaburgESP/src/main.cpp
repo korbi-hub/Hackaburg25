@@ -7,6 +7,7 @@ void setup() {
   // put your setup code here, to run once:
   Serial.begin(115200);         // WICHTIG: Seriellen Monitor starten!
   c_esp->A01_Setup();
+  Serial.println("Setup completed");
 }
 
 void loop() {

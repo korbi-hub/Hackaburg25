@@ -17,5 +17,5 @@ void Electronic::activateBuzzer(bool m_buzzerOn) {  // buzzer buzzes when buzzer
 
 // if true: open position | if false: closed position
 void Electronic::ServoMotorOpen(bool m_Open) {
-    myServo.write(m_Open ? 90 : 0);
+    myServo.write(m_Open ? 55 : 160);
 }     

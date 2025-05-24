@@ -14,7 +14,7 @@ Electronic::Electronic(){
     
     // Initialize Shit
     ServoMotorOpen(true); // start in open position
-    turnOnLed(false, false, false); // LEDs aus beim Start
+    turnOnLed(true, false, false); // LEDs aus beim Start    @TEST
     activateBuzzer(false);  // turn off buzzer
     ac_setup();
 }
