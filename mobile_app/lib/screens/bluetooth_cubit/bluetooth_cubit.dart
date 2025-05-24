@@ -13,7 +13,7 @@ part 'bluetooth_state.dart';
 class BluetoothCubit extends Cubit<BluetoothCubitState> {
   static const String characteristicUuid =
       "beb5483e-36e1-4688-b7f5-ea07361b26a8"; // UUID für das BLE-Characteristic
-  final BluetoothConnectionRepo repo;
+  final SharedPreferencesRepo repo;
 
   BluetoothCubit({required this.repo}) : super(BluetoothInitial());
 
@@ -53,29 +53,6 @@ class BluetoothCubit extends Cubit<BluetoothCubitState> {
         }
       }
     }
-  }
-
-  Future<void> listenToChara(
-    BluetoothCharacteristic characteristic,
-    BluetoothDevice device,
-  ) async {
-    final subscription = characteristic.onValueReceived.listen((value) {
-      debugPrint('Characteristic::$value');
-    });
-
-    // cleanup: cancel subscription when disconnected
-    device.cancelWhenDisconnected(subscription);
-  }
-
-  Future<void> forgetDevice(Bike bike) async {
-    final bikes =
-        await repo.savedBikes
-          ..remove(bike);
-    repo.replaceBikes(bikes);
-  }
-
-  Future<void> unlock(Bike bike, BluetoothDevice device) async {
-    await sendData(device, 'unlock');
   }
 
   Future<void> scan() async {

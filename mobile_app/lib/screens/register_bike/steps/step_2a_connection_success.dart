@@ -3,11 +3,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_blue_plus/flutter_blue_plus.dart';
 import 'package:mobile_app/extensions/extensions.dart';
 import 'package:mobile_app/model/saved_bike.dart';
+import 'package:mobile_app/screens/home/cubit/home_cubit.dart';
 import 'package:mobile_app/screens/register_bike/cubit/bike_registration_cubit.dart';
 
 class Step2aConnectionSuccess extends StatelessWidget {
   final BluetoothDevice device;
   final TextEditingController controller;
+  final focusNode = FocusNode();
 
   Step2aConnectionSuccess({super.key, required this.device})
     : controller = TextEditingController();
@@ -18,17 +20,14 @@ class Step2aConnectionSuccess extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
-        Text(context.translate.bikeNameLabel),
         TextField(
+          focusNode: focusNode,
           controller: controller,
           decoration: InputDecoration(
+            labelText: context.translate.bikeNameLabel,
             border: OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
-          ),
-        ),
-        Row(
-          children: [
-            ElevatedButton(
-              onPressed: () {
+            suffixIcon: GestureDetector(
+              onTap: () {
                 context.read<BikeRegistrationCubit>().finishProcess(
                   Bike(
                     bikeName: controller.value.text,
@@ -39,10 +38,12 @@ class Step2aConnectionSuccess extends StatelessWidget {
                   ),
                   context,
                 );
+                context.read<HomeCubit>().getBikes();
               },
-              child: Text(context.translate.addBike),
+              child: Icon(Icons.save),
             ),
-          ],
+          ),
+          onTapOutside: (_) => focusNode.unfocus(),
         ),
       ],
     );

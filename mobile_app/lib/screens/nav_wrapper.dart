@@ -15,7 +15,11 @@ class NavWrapper extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Align(alignment: Alignment.centerLeft, child: Text('sheesh')),
+        title: Align(
+          alignment: Alignment.centerLeft,
+          child: Text(context.translate.appName),
+        ),
+        // backgroundColor: Colors.,
       ),
       body: SafeArea(
         child: Padding(
@@ -24,8 +28,7 @@ class NavWrapper extends StatelessWidget {
             valueListenable: indexNotifier,
             builder:
                 (context, value, widget) => switch (value) {
-                  1 => RegisterBikeFlow(),
-                  2 => StatsScreen(),
+                  1 => StatsScreen(),
                   _ => Home(),
                 },
           ),
@@ -34,14 +37,17 @@ class NavWrapper extends StatelessWidget {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: Align(
         alignment: Alignment.bottomCenter,
-        child: FloatingActionButton(
-          onPressed:
-              () => context.navigator.push(
-                MaterialPageRoute(
-                  builder: (context) => const RegisterBikeFlow(),
+        child: Padding(
+          padding: const EdgeInsets.only(bottom: 24),
+          child: FloatingActionButton(
+            onPressed:
+                () => context.navigator.push(
+                  MaterialPageRoute(
+                    builder: (context) => const RegisterBikeFlow(),
+                  ),
                 ),
-              ),
-          child: Icon(Icons.directions_bike),
+            child: Icon(Icons.directions_bike),
+          ),
         ),
       ),
       bottomNavigationBar: ValueListenableBuilder(

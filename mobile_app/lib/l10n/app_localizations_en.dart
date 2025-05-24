@@ -9,7 +9,10 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
-  String get home => 'Home screen';
+  String get home => 'Homescreen';
+
+  @override
+  String get appName => 'ShareLock';
 
   @override
   String get registerBike => 'Register bike';
@@ -22,7 +25,11 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get activateNfcMessage =>
-      'To connect to your bike lock you first need to activate the Bike with the RFID chip you received with the lock.\n\nPlease place the RFID chip on the lock and wait until you can hear it beep. After you heard the noise, please press on \"Continue process\"';
+      'To connect to your bike lock you first need to activate the Bike with the RFID chip you received with the lock.';
+
+  @override
+  String get activateNfcMessage2 =>
+      'Please place the RFID chip on the lock and wait until you can hear it beep. After you heard the noise, please press on \"Continue process\".';
 
   @override
   String get continueProcess => 'Continue process';
@@ -47,4 +54,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get addBike => 'Add bike';
+
+  @override
+  String get kilometersLastMonth => 'Travelled kilometers';
+
+  @override
+  String get monthlyStats => 'Monthly Stats';
 }

@@ -1,10 +1,11 @@
 {
   "home": "Homescreen",
-  "appName": "Easy Lock",
+  "appName": "ShareLock",
   "registerBike": "Register bike",
   "registerYourBike": "Register your bike",
   "activateNcf": "Activate your lock via RFID",
-  "activateNfcMessage": "To connect to your bike lock you first need to activate the Bike with the RFID chip you received with the lock.\n\nPlease place the RFID chip on the lock and wait until you can hear it beep. After you heard the noise, please press on \"Continue process\"",
+  "activateNfcMessage": "To connect to your bike lock you first need to activate the Bike with the RFID chip you received with the lock.",
+  "activateNfcMessage2": "Please place the RFID chip on the lock and wait until you can hear it beep. After you heard the noise, please press on \"Continue process\".",
   "continueProcess": "Continue process",
   "createConnection": "Connect to your lock",
   "connectionSuccess": "Connection successful",
@@ -12,5 +13,7 @@
   "stats": "Stats",
   "retryScan": "Retry scan",
   "bikeNameLabel": "Bike name",
-  "addBike": "Add bike"
+  "addBike": "Add bike",
+  "kilometersLastMonth": "Travelled kilometers",
+  "monthlyStats": "Monthly Stats"
 }

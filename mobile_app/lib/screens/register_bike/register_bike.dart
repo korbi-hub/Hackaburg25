@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mobile_app/extensions/extensions.dart';
 import 'package:mobile_app/repositories/bluetooth_connection_repo.dart';
 import 'package:mobile_app/screens/register_bike/cubit/bike_registration_cubit.dart';
 import 'package:mobile_app/screens/register_bike/steps/step_1_nfc_activation.dart';
@@ -15,12 +16,12 @@ class RegisterBikeFlow extends StatelessWidget {
     return BlocProvider(
       create:
           (context) =>
-              BikeRegistrationCubit(context.read<BluetoothConnectionRepo>())
+              BikeRegistrationCubit(context.read<SharedPreferencesRepo>())
                 ..init(),
       child: Builder(
         builder: (context) {
           return Scaffold(
-            appBar: AppBar(),
+            appBar: AppBar(title: Text(context.translate.registerBike)),
             body: SafeArea(
               child: Padding(
                 padding: const EdgeInsets.all(12.0),

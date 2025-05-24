@@ -16,20 +16,34 @@ class Step2EstablishConnection extends StatelessWidget {
           return SingleChildScrollView(
             child: Column(
               spacing: 12,
-              children:
-                  state.devices
-                      .map(
-                        (device) => InkWell(
-                          child: ListTile(title: Text('$device')),
-                          onTap: () {
-                            // context.read<BluetoothCubit>().debugSend(device);
-                            context
-                                .read<BikeRegistrationCubit>()
-                                .goToRegistration(device);
-                          },
-                        ),
-                      )
-                      .toList(),
+              children: [
+                for (final device in state.devices) ...[
+                  InkWell(
+                    onTap:
+                        () => context
+                            .read<BikeRegistrationCubit>()
+                            .goToRegistration(device),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(right: 48.0),
+                            child: Icon(Icons.bluetooth),
+                          ),
+                          Text(
+                            device.platformName,
+                            style: context.textTheme.titleMedium,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  if (device != state.devices.last)
+                    Divider(color: Colors.grey.withOpacity(0.05)),
+                ],
+              ],
             ),
           );
         } else if (state is BluetoothLoading) {
@@ -41,10 +55,11 @@ class Step2EstablishConnection extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                ElevatedButton(
+                FilledButton.tonal(
                   onPressed: () => context.read<BluetoothCubit>().scan(),
                   child: Text(context.translate.retryScan),
                 ),
+                SizedBox(height: 140),
               ],
             ),
           ],
