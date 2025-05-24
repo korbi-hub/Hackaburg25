@@ -45,6 +45,7 @@ class Step2EstablishConnection extends StatelessWidget {
                   onPressed: () => context.read<BluetoothCubit>().scan(),
                   child: Text(context.translate.retryScan),
                 ),
+                SizedBox(height: 140),
               ],
             ),
           ],

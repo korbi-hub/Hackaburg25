@@ -20,12 +20,14 @@ class Step2aConnectionSuccess extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(Icons.pedal_bike),
-            SizedBox(width: 20,),
-            Text(context.translate.bikeNameLabel,
-            style: TextStyle(fontSize: 18),),
+            SizedBox(width: 20),
+            Text(
+              context.translate.bikeNameLabel,
+              style: TextStyle(fontSize: 18),
+            ),
             SizedBox(width: 20),
           ],
         ),
