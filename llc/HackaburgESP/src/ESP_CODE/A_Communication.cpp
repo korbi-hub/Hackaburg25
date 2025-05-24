@@ -7,12 +7,13 @@ void ESP_Steuerung::A02_CommIn()
     m_Connected = c_blueCom.isConnected(&UUID);
 
     // Check Accel dings
-    /*if (c_electric.accelsensorAlarm)  // @cosmin
+    if (ac_is_bike_stolen()) 
     {
         m_SqActiveNo[4] = true;
     }
-    */
-
+    
+   // loop accel sensor
+    ac_loop();
     // button Activated from entprelltem signal
     m_buttonLockPressed = c_electric.buttonActivated(PIN_LOCK_BUTTON);
     m_buttonUnlockPressed = c_electric.buttonActivated(PIN_UNLOCK_BUTTON);

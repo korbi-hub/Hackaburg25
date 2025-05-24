@@ -1,7 +1,7 @@
 #pragma once
 #include "PINs.h"
 #include <ESP32Servo.h>
-
+#include "accelerometer.h"
 
 class Electronic{
 public:
@@ -17,7 +17,6 @@ public:
     bool buttonActivated(short buttonPin); // mit button library entprellen?
     bool RFID(std::string& UUID_Pointer);   // return: true if scan was correct / give "UUID_Pointer" the value 
 private:
-    long GetValueAccelSensor();
     Servo myServo;
 
     // ======= button ===============

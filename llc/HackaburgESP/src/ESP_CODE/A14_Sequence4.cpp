@@ -26,24 +26,15 @@ void ESP_Steuerung::A14_Sequence4_FalscheUUID(){
             // Fremder Zugriffsversuch
             else
             {
-                c_blueCom.sendComm("Fremder Versuchszugriff"); // TODO
+                c_blueCom.sendComm("Fremder Zugriff");
                 int_Sq[4]++;
             }
         break;
 
         // Wait Antwort auf fremden Versuchszugriff
         case 2:
-            strcpy(str_textbuffer, c_blueCom.getComm().c_str());
-            if(strcmp(str_textbuffer, "ALARM"))
-            {
-                m_AlarmOn = true;
-                int_Sq[4] = 0;
-            }
-            else if(strcmp(str_textbuffer, "Chill"))
-            {
-                int_Sq[4] = 0;
-            }
-
+            m_AlarmOn = true;
+            int_Sq[4] = 0;
         break;
 
         default:

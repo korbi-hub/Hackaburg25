@@ -54,6 +54,7 @@ void ESP_Steuerung::A10_Sequence0_Einrichtung(){
 
         // End handshake App
         case 4:
+            c_electric.Connection(m_Registered);
             m_SqActiveNo[0] = false;
             int_Sq[0] = 0;
         break;

@@ -50,7 +50,7 @@ void ac_loop()
     result = mpu.accelUpdate();
     if (result)
     {
-        Serial.println("Cannod read accel values " + String(result));
+        Serial.println("Cannot read accel values " + String(result));
     }
 
     if (ac_state == 0)

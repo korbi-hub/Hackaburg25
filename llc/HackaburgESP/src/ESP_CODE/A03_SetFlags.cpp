@@ -26,6 +26,7 @@ void ESP_Steuerung::A03_SetFlags()
     )
     {
         m_AlarmOn = false;
+        ac_reset();
     }
     else{
         t_AlarmOnTime = millis();

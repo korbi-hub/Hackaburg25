@@ -1,8 +1,8 @@
-#define PIN_BUZZER 5
+#define PIN_BUZZER 15
 
-#define PIN_LED_RED 6
-#define PIN_LED_GREEN 7
-#define PIN_LED_BLUE 8
+#define PIN_LED_RED 25
+#define PIN_LED_GREEN 26
+#define PIN_LED_BLUE 27
 
 // TODO RFID RECHERCHIEREN
 
@@ -11,4 +11,4 @@
 #define MOTOR_PWM 20
 
 #define PIN_UNLOCK_BUTTON 12
-#define PIN_LOCK_BUTTON 13
+#define PIN_LOCK_BUTTON 32

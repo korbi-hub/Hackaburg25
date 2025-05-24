@@ -30,4 +30,3 @@ bool Electronic::buttonActivated(short buttonPin){
 
 bool Electronic::RFID(std::string& UUID_Pointer){return 0;}   // return: true if scan was correct / give "UUID_Pointer" the value 
 
-long Electronic::GetValueAccelSensor(){return 0;}
