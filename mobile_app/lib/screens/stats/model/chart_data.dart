@@ -29,60 +29,20 @@ class ChartData {
       value: 1820,
       icon: Icons.directions_bike,
     ),
-    ChartData(
-      name: 'Total Rides',
-      value: 96,
-      icon: Icons.history,
-    ),
-    ChartData(
-      name: 'Average Speed (km/h)',
-      value: 24,
-      icon: Icons.speed,
-    ),
-    ChartData(
-      name: 'Max Speed (km/h)',
-      value: 48,
-      icon: Icons.flash_on,
-    ),
-    ChartData(
-      name: 'Total Time (hrs)',
-      value: 78,
-      icon: Icons.timer,
-    ),
+    ChartData(name: 'Total Rides', value: 96, icon: Icons.history),
+    ChartData(name: 'Average Speed (km/h)', value: 24, icon: Icons.speed),
+    ChartData(name: 'Max Speed (km/h)', value: 48, icon: Icons.flash_on),
+    ChartData(name: 'Total Time (hrs)', value: 78, icon: Icons.timer),
     ChartData(
       name: 'Calories Burned',
       value: 45120,
       icon: Icons.local_fire_department,
     ),
-    ChartData(
-      name: 'Elevation Gain (m)',
-      value: 3250,
-      icon: Icons.terrain,
-    ),
-    ChartData(
-      name: 'Longest Ride (km)',
-      value: 75,
-      icon: Icons.route,
-    ),
-    ChartData(
-      name: 'Ride Days',
-      value: 85,
-      icon: Icons.calendar_today,
-    ),
-    ChartData(
-      name: 'Flat Tires',
-      value: 3,
-      icon: Icons.report_problem,
-    ),
-    ChartData(
-      name: 'Maintenance Sessions',
-      value: 5,
-      icon: Icons.build,
-    ),
-    ChartData(
-      name: 'CO2 Saved (kg)',
-      value: 128,
-      icon: Icons.eco,
-    ),
+    ChartData(name: 'Elevation Gain (m)', value: 3250, icon: Icons.terrain),
+    ChartData(name: 'Longest Ride (km)', value: 75, icon: Icons.route),
+    ChartData(name: 'Ride Days', value: 85, icon: Icons.calendar_today),
+    ChartData(name: 'Flat Tires', value: 3, icon: Icons.report_problem),
+    ChartData(name: 'Maintenance Sessions', value: 5, icon: Icons.build),
+    ChartData(name: 'CO2 Saved (kg)', value: 128, icon: Icons.eco),
   ];
 }

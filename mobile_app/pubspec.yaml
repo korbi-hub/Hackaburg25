@@ -21,6 +21,7 @@ dependencies:
   flutter_svg: ^2.1.0
   http: ^1.4.0
   syncfusion_flutter_charts: ^29.2.5
+  beep_sound: ^0.0.3
 
 
 dev_dependencies:

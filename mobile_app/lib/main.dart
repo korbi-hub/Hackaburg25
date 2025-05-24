@@ -1,3 +1,4 @@
+import 'package:beep_sound/beep_sound.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -31,17 +32,19 @@ class MyApp extends StatelessWidget {
           BlocProvider<BluetoothCubit>(
             create:
                 (context) =>
-            BluetoothCubit(repo: context.read<SharedPreferencesRepo>())
-              ..init(),
+                    BluetoothCubit(repo: context.read<SharedPreferencesRepo>())
+                      ..init(),
           ),
           BlocProvider<HomeCubit>(
             create:
                 (context) =>
-            HomeCubit(context.read<SharedPreferencesRepo>())
-              ..getBikes(),
+                    HomeCubit(context.read<SharedPreferencesRepo>())
+                      ..getBikes(),
           ),
           BlocProvider<ProximityCubit>(
-            create: (context) => ProximityCubit(context.read<HttpRepo>()),
+            create:
+                (context) =>
+                    ProximityCubit(context.read<HttpRepo>())..checkForDanger(),
           ),
         ],
         child: MaterialApp(
@@ -63,7 +66,9 @@ class MyApp extends StatelessWidget {
               return BlocListener<ProximityCubit, ProximityState>(
                 listener: (context, state) {
                   if (state is IsInDanger && state.isTooClose!) {
-                    // TODO: Make a beep noise
+                    BeepSound().playSysSound(
+                      AndroidSoundIDs.toneCdmaAbbrAlert.value,
+                    );
                   }
                 },
                 child: NavWrapper(),

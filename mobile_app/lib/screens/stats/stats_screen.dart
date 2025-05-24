@@ -46,10 +46,7 @@ class StatsScreen extends StatelessWidget {
                         padding: const EdgeInsets.only(right: 12.0),
                         child: Icon(statValue.icon!),
                       ),
-                      Text(
-                        statValue.name,
-                        style: context.textTheme.bodyMedium,
-                      ),
+                      Text(statValue.name, style: context.textTheme.bodyMedium),
                     ],
                   ),
                   Text(
