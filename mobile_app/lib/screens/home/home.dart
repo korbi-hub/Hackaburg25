@@ -23,7 +23,11 @@ class Home extends StatelessWidget {
           }
           return Column(
             children: [
-              for (final device in data) ...[BikeInfoCard(device: device)],
+              for (final device in data) ...[
+                BikeInfoCard(device: device),
+                if (device != data.last)
+                  Divider(color: Colors.grey.withOpacity(0.05)),
+              ],
             ],
           );
         },

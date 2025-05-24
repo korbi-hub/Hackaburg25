@@ -19,7 +19,7 @@ class NavWrapper extends StatelessWidget {
           alignment: Alignment.centerLeft,
           child: Text(context.translate.appName),
         ),
-        backgroundColor: Colors.grey.shade300,
+        // backgroundColor: Colors.,
       ),
       body: SafeArea(
         child: Padding(
@@ -37,14 +37,17 @@ class NavWrapper extends StatelessWidget {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: Align(
         alignment: Alignment.bottomCenter,
-        child: FloatingActionButton(
-          onPressed:
-              () => context.navigator.push(
-                MaterialPageRoute(
-                  builder: (context) => const RegisterBikeFlow(),
+        child: Padding(
+          padding: const EdgeInsets.only(bottom: 24),
+          child: FloatingActionButton(
+            onPressed:
+                () => context.navigator.push(
+                  MaterialPageRoute(
+                    builder: (context) => const RegisterBikeFlow(),
+                  ),
                 ),
-              ),
-          child: Icon(Icons.directions_bike),
+            child: Icon(Icons.directions_bike),
+          ),
         ),
       ),
       bottomNavigationBar: ValueListenableBuilder(
