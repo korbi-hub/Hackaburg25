@@ -9,3 +9,5 @@
 #define PIN_ACCELSENSOR A1
 
 #define MOTOR_PWM 20
+
+#define PIN_BUTTON 12

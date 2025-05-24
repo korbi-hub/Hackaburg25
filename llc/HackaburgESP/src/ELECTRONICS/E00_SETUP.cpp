@@ -9,6 +9,8 @@ Electronic::Electronic(){
     pinMode(PIN_LED_RED, OUTPUT);
     pinMode(PIN_LED_GREEN, OUTPUT);
     pinMode(PIN_LED_BLUE, OUTPUT);
+    pinMode(PIN_BUTTON, INPUT_PULLUP);   // oder INPUT_PULLDOWN, je nach Schaltung
+
     
     // Initialize Shit
     ServoMotorOpen(true); // start in open position

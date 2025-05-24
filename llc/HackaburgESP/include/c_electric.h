@@ -19,4 +19,12 @@ public:
 private:
     long GetValueAccelSensor();
     Servo myServo;
+
+    // ======= button ===============
+    static constexpr uint16_t HOLD_MS   = 500;      // Nachlaufzeit in ms
+
+    // interne Zustands­variablen
+    bool           _lastPhysical = false;           // vorheriger Pin-Zustand
+    bool           _latched      = false;           // liegt noch im Haltefenster?
+    unsigned long  _activatedAt  = 0;               // Zeitpunkt der Aktivierung
 };
