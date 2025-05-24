@@ -16,16 +16,26 @@ class Step2aConnectionSuccess extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisAlignment: MainAxisAlignment.end,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(context.translate.bikeNameLabel),
+        Row(
+          children: [
+            Text(context.translate.bikeNameLabel,
+            style: TextStyle(fontSize: 18),),
+            Icon(Icons.pedal_bike),
+          ],
+        ),
+
+        SizedBox(height: 20,),
         TextField(
           controller: controller,
           decoration: InputDecoration(
             border: OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
           ),
         ),
+        SizedBox(height: 20,),
         Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ElevatedButton(
               onPressed: () {
@@ -42,8 +52,10 @@ class Step2aConnectionSuccess extends StatelessWidget {
               },
               child: Text(context.translate.addBike),
             ),
+
           ],
         ),
+        SizedBox(height: 150),
       ],
     );
   }
