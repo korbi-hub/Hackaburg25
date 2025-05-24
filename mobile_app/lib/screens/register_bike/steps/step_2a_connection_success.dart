@@ -27,18 +27,17 @@ class Step2aConnectionSuccess extends StatelessWidget {
             Text(context.translate.bikeNameLabel,
             style: TextStyle(fontSize: 18),),
             SizedBox(width: 20),
-
           ],
         ),
 
-        SizedBox(height: 20,),
+        SizedBox(height: 20),
         TextField(
           controller: controller,
           decoration: InputDecoration(
             border: OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
           ),
         ),
-        SizedBox(height: 20,),
+        SizedBox(height: 20),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -58,7 +57,6 @@ class Step2aConnectionSuccess extends StatelessWidget {
               },
               child: Text(context.translate.addBike),
             ),
-
           ],
         ),
         SizedBox(height: 150),

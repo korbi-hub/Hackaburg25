@@ -11,7 +11,7 @@ class ProximityCubit extends Cubit<ProximityState> {
 
   Future<void> checkForDanger() async {
     while (true) {
-      Future.delayed(Duration(seconds: 1));
+      Future.delayed(Duration(seconds: 5));
       final isTooClose = await repo.isTooClose();
       if (isTooClose) {
         emit(IsInDanger(isTooClose: isTooClose));

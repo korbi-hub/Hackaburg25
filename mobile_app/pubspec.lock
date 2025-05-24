@@ -41,6 +41,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.13.0"
+  beep_sound:
+    dependency: "direct main"
+    description:
+      name: beep_sound
+      sha256: fbbec08537c46799f8be8666ddd9e02da809a7d5be039c132dc30f8be06f06b0
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.3"
   bloc:
     dependency: transitive
     description:
