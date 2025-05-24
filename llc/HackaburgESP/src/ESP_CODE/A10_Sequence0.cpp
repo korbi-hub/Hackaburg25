@@ -8,12 +8,12 @@ void ESP_Steuerung::A10_Sequence0_Einrichtung(){
     if(!m_SqActiveNo[0])
     {
         // reset variables
-        int_0 = 0;
+        int_Sq[0] = 0;
         m_sq0_first = true;
         return;
     }
         
-    switch (int_0){ 
+    switch (int_Sq[0]){ 
     
         // Skip
         case 0:
@@ -27,7 +27,7 @@ void ESP_Steuerung::A10_Sequence0_Einrichtung(){
                 m_SqActiveNo[0] = false;
                 return;
             }   
-            int_0++;
+            int_Sq[0]++;
         break;
 
         // RFID Authorization Check
@@ -35,7 +35,7 @@ void ESP_Steuerung::A10_Sequence0_Einrichtung(){
             // RFID Authorisation
             if(c_electric.RFID(UUID))
             {
-                int_0++;
+                int_Sq[0]++;
                 m_sq0_first = true;
             }                
             else
@@ -55,12 +55,12 @@ void ESP_Steuerung::A10_Sequence0_Einrichtung(){
         // End handshake App
         case 4:
             m_SqActiveNo[0] = false;
-            int_0 = 0;
+            int_Sq[0] = 0;
         break;
 
 
         default:
-            int_0 = 0;
+            int_Sq[0] = 0;
             m_SqActiveNo[0] = false;
     }
 

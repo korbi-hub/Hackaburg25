@@ -7,7 +7,7 @@ void ESP_Steuerung::A02_CommIn()
     m_Connected = c_blueCom.isConnected(&UUID);
 
     // Check Accel dings
-    /*if (c_electric.accelsensorAlarm)
+    /*if (c_electric.accelsensorAlarm)  // @cosmin
     {
         m_SqActiveNo[4] = true;
     }

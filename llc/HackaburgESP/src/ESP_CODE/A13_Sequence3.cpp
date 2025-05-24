@@ -6,7 +6,7 @@ void ESP_Steuerung::A13_Sequence3_Zusperren(){
     if(!m_SqActiveNo[3])
         return;
         
-    switch (int_3){ 
+    switch (int_Sq[3]){ 
         // Skip
         case 0:
             break;
@@ -21,19 +21,19 @@ void ESP_Steuerung::A13_Sequence3_Zusperren(){
                 m_SqActiveNo[3] = 0;
                 return;
             }
-            int_3++;
+            int_Sq[3]++;
         break;
 
         // Connect (if necessary)
         case 2:
-            int_3++;
+            int_Sq[3]++;
         break;
 
         // Wait Button Pushed
         case 3:
             if(m_buttonPressed)
             {
-                int_3++;
+                int_Sq[3]++;
             }
         break;
 
@@ -41,20 +41,20 @@ void ESP_Steuerung::A13_Sequence3_Zusperren(){
         case 4:
             m_Driving = false;
             m_SqActiveNo[2] = false;
-            int_3++;
+            int_Sq[3]++;
         break;
 
         // Lock
         case 5:
             c_electric.ServoMotorOpen(false);
             delay(500);
-            int_3 = 0;
+            int_Sq[3] = 0;
             m_SqActiveNo[2] = true;
         break;
 
 
         default:
-            int_3 = 0;
+            int_Sq[3] = 0;
         break;
     }
     return;

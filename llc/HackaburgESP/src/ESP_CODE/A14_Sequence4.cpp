@@ -6,7 +6,7 @@ void ESP_Steuerung::A14_Sequence4_FalscheUUID(){
     if(!m_SqActiveNo[4])
         return;
     char str_textbuffer[255];
-    switch (int_4){ 
+    switch (int_Sq[4]){ 
     
         // Skip
         case 0:
@@ -21,13 +21,13 @@ void ESP_Steuerung::A14_Sequence4_FalscheUUID(){
                 c_electric.activateBuzzer(true);
                 delay(1500);
                 c_electric.activateBuzzer(false);
-                int_4 = 0;
+                int_Sq[4] = 0;
             }
             // Fremder Zugriffsversuch
             else
             {
                 c_blueCom.sendComm("Fremder Versuchszugriff"); // TODO
-                int_4++;
+                int_Sq[4]++;
             }
         break;
 
@@ -37,17 +37,17 @@ void ESP_Steuerung::A14_Sequence4_FalscheUUID(){
             if(strcmp(str_textbuffer, "ALARM"))
             {
                 m_AlarmOn = true;
-                int_4 = 0;
+                int_Sq[4] = 0;
             }
             else if(strcmp(str_textbuffer, "Chill"))
             {
-                int_4 = 0;
+                int_Sq[4] = 0;
             }
 
         break;
 
         default:
-            int_4 = 0;
+            int_Sq[4] = 0;
         break;
     }
     return;

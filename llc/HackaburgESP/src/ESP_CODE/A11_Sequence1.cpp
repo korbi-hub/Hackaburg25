@@ -38,7 +38,7 @@ void ESP_Steuerung::A11_Sequence1_Aufsperren(){
 
         // Wait for Command (& therefore UUID)
         case 3:
-            if(strcmp(c_blueCom.getComm().c_str(),"lock") == 0) // TODO
+            if(strcmp(c_blueCom.getComm().c_str(),"lock") == 0) // TODO muesste nicht unlock sein
                 int_Sq[1]++;
         break;
         

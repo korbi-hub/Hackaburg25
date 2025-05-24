@@ -48,7 +48,7 @@ private:
     bool m_buttonPressed = false;
 
     // alarm
-    unsigned double t_AlarmOnTime = 0;
+    unsigned long t_AlarmOnTime = 0;
 
     // Sequences
     bool m_SqActiveNo[NoOfSequences];
