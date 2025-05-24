@@ -74,9 +74,6 @@ void BLEHandler::send(const std::string& data) {
     }
 }
 
-void BLEHandler::setReceiveCallback(ReceiveCallback cb) {
-    _receiveCallback = cb;
-}
 
 // ===== interne Helfer =====================================
 
@@ -97,4 +94,16 @@ void BLEHandler::_onWrite(const std::string& data) {
         Serial.print("[BLE] Empfangen: ");
         Serial.println(data.c_str());
     }
+
+    _lastReceived = data;  // Speicherung
+    receiveTime = millis();
+    Serial.print("[BLE] Empfangen: ");
+    Serial.println(data.c_str());
+}
+
+void BLEHandler::onReceive(const std::string& data) 
+{
+  Serial.print("Empfangen: ");
+  Serial.println(data.c_str());
+
 }

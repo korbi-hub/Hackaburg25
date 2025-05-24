@@ -29,8 +29,11 @@ public:
     bool isConnected() const;        // true, wenn Client verbunden
 
     void send(const std::string& data);               // Daten an Client
-    void setReceiveCallback(ReceiveCallback cb);      // eingehende Daten‑Callback
 
+    void onReceive(const std::string& data);
+    
+    std::string getLastReceived() const { return _lastReceived; }
+    unsigned long receiveTime = 0; // Zeit in der Empfangen wurde 
 private:
     // interne Callback‑Klassen
     class ServerCallbacks;
@@ -45,6 +48,9 @@ private:
     bool _deviceConnected = false;
 
     ReceiveCallback _receiveCallback = nullptr;
+
+    // Receiver
+     std::string _lastReceived;  // letzte empfangene Nachricht
 
     // Helfer, von statischen BLE‑Callbacks aufgerufen
     void _onConnect();
